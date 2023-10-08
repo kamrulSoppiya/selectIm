@@ -1,0 +1,197 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.row{
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+.container{
+    height: 80vh;
+    display: grid;
+    justify-content: center;
+    max-width: 61.25rem;
+    width: 120vh;
+    align-content: center;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: 50px 1fr 60px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px 8px 12px 12px;
+    color: #303030;
+}
+.header{
+    grid-column: 1/-1;
+    border-radius: 12px 12px 0 0 ;
+    border-bottom:1px solid rgb(207, 207, 207);
+    display: flex;
+    align-items:center;
+    padding:0 10px;
+    justify-content: space-between;
+}
+.sidebar{
+    grid-column: 1/4;
+    border-right:1px solid rgb(207, 207, 207);
+    cursor: pointer;
+}
+.sidebarTopContent{
+    display: flex;
+    flex-direction: column;
+    gap:12px;
+    border-bottom:1px solid rgb(207, 207, 207); 
+    padding-bottom:14px;
+}
+.sidebarOption{
+    display: flex;
+    justify-content: space-between;
+    padding:0 8px;
+    align-content: center;
+}
+.sidebarOption:nth-child(1){
+    margin-top:10px;
+}
+.sidebarOption:nth-child(1){
+    margin-top:10px;
+}
+.sidebarBottomContent{
+    display: flex;
+    flex-direction: column;
+    gap:12px;
+}
+.mainBody{
+    grid-column: 4/-1;
+    border-right:1px solid rgb(207, 207, 207);
+    padding:12px;
+}
+
+.navFilter{
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.filterOption{
+    display: flex;
+    gap:15px
+}
+.searchBox input{
+    height: 30px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    outline: none;
+    border:1px solid rgb(134, 133, 133);
+    padding:0 15px;
+}
+.searchBox input[type=text]:focus{
+    padding:6px;
+    border:1px solid red;
+    outline: rgb(123, 123, 230);
+}
+/* .mainBodyScroll{
+    overflow: scroll;
+} */
+.dragZone{
+    margin:20px 0;
+    border:1px dotted rgb(207, 207, 207);
+    padding:4vh;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.images{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(auto,80px));
+    gap:30px;
+    margin-top: 16px;
+    justify-content: center;
+}
+
+.imageBox img{
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+/* .imageBox{
+    position: relative;
+    height: 18vh;
+    width: 18vh;
+    background-color: rgb(235, 233, 233);
+    border: 1px solid  rgb(207, 207, 207);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(207, 207, 207);
+    padding: 4px;
+}
+
+.images img{
+    position: absolute;
+    height: 95%;
+    width: 95%;
+    border-radius: 16px;
+} */
+.footer{
+    grid-column: 1/-1;
+    border-top:1px solid rgb(226, 221, 221);
+    border-radius:0 0 12px 12px;
+    display: flex;
+    justify-content: end;
+    padding:17px;
+    gap:10px;
+
+}
+.footer button{
+    padding:0 16px;
+    border-radius: 6px;
+    outline: none;
+    border:1px solid rgb(226, 221, 221);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+/* Tab Component Active & inActive */
+.sidebarOption .isActive{
+    color: red;
+}
+
+.loader {
+    border-radius: 50%;
+    border-top: 2px solid #5e5e5e;
+    width: 25px;
+    height: 25px;
+    border-right: 2px solid #5e5e5e;
+    border-left: 2px solid rgb(207, 207, 207);
+    border-bottom: 2px solid rgb(207, 207, 207);
+    border-width: 4px;
+    animation: spin 0.5s linear infinite !important;
+    -webkit-animation: spin 0.5s linear infinite !important;
+    /*Safari*/animation: spin 1s linear infinite;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+

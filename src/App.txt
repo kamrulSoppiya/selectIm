@@ -1,0 +1,50 @@
+import { useState } from "react";
+import ImageUploader from "./Components/ImageUploader";
+
+function App() {
+  const [selectedFile, setSelectedFile] = useState([]);
+    const [error, setError] = useState({
+        status: false, msg: ''
+      });
+      
+    // Function for base64 and Data onLoad   
+    const dataOnLoad = (file) => {
+        if (file && isSupportedImageFormat(file, imgFormat)) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            const base64Image = event.target.result;
+            setSelectedFile([...selectedFile,base64Image]);
+        };
+        reader.readAsDataURL(file);
+        } else {
+        setError(
+            {
+            status: true,
+            msg: `Invalid image format. Please upload an Valid image.`
+            });
+        }
+    }
+  
+    const isSupportedImageFormat = (file, imgFormat) => {
+        // eslint-disable-next-line react/prop-types
+        const conCatData = imgFormat.map(element => 'image/' + element);
+        return conCatData.includes(file.type)
+    };
+
+    const imgFormat = ["jpg", "jpeg", "png" ];
+    
+    return(
+        <div className="">
+          <ImageUploader dataOnLoad={dataOnLoad} imgFormat={imgFormat} setError={setError} error={error} />
+          {selectedFile.map((selectFile, index)=>{
+                return(
+                    <div key={index} className="image-preview" style={{ width: "200px" }}>
+                        <img src={selectFile} alt="Uploaded" style={{ width: "200px" }} />
+                    </div>
+                )
+                })}
+        </div>
+    )
+}
+
+export default App
